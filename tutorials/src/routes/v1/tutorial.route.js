@@ -2,13 +2,13 @@ const express = require("express");
 const validate = require("../../middlewares/validate");
 const validation = require("../../validations/tutorial.validation");
 const tutorialController = require("../../controllers/tutorial.controller");
-const auth = require("../../middlewares/auth");
+// const auth = require("../../middlewares/auth");
 
 const router = express.Router();
 
 router.post(
   "/",
-  auth(),
+  // auth(), JWT token validation OFF - Integration with VueJs Web App.
   validate(validation.createTutorial),
   tutorialController.createTutorial
 );
