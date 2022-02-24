@@ -1,0 +1,8 @@
+Run docker compose:
+docker-compose up -d
+
+Enter Db container
+docker exec -it cualit_db /bin/bash
+
+Enter Mysql:
+mysql cualit -uroot -plala1234

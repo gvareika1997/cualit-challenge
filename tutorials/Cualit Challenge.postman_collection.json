@@ -1,0 +1,269 @@
+{
+	"info": {
+		"_postman_id": "a8575022-d44f-4e04-801e-dfc9ca22d3f7",
+		"name": "Cualit Challenge",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create tutorial",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\":\"Vuejs Tutorial\", \n    \"videoUrl\":\"https://www.youtube.com/watch?v=nhBVL41-_Cw&ab_channel=Fireship\",\n    \"description\":\"Vuejs Tutorial for Beginners\",\n    \"status\": \"PUBLISHED\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/v1/tutorials",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"v1",
+						"tutorials"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get tutorials",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/v1/tutorials?title=Vue&description=Beginners",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"v1",
+						"tutorials"
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "Vue"
+						},
+						{
+							"key": "description",
+							"value": "Beginners"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get tutorials by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/v1/tutorials?title=Vue&description=Beginners",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"v1",
+						"tutorials"
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "Vue"
+						},
+						{
+							"key": "description",
+							"value": "Beginners"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update tutorial",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\":\"Vuejs Tutorial 1\", \n    \"videoUrl\":\"https://www.youtube.com/watch?v=nhBVL41-_Cw&ab_channel=Fireship\",\n    \"description\":\"Vuejs Tutorial for Beginners 5\",\n    \"status\": \"PUBLISHED\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/v1/tutorials/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"v1",
+						"tutorials",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete tutorial",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\":\"Vuejs Tutorial 1\", \n    \"videoUrl\":\"https://www.youtube.com/watch?v=nhBVL41-_Cw&ab_channel=Fireship\",\n    \"description\":\"Vuejs Tutorial for Beginners 5\",\n    \"status\": \"PUBLISHED\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/v1/tutorials/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"v1",
+						"tutorials",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Mass Delete",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\":\"Vuejs Tutorial 1\", \n    \"videoUrl\":\"https://www.youtube.com/watch?v=nhBVL41-_Cw&ab_channel=Fireship\",\n    \"description\":\"Vuejs Tutorial for Beginners 5\",\n    \"status\": \"PUBLISHED\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/v1/tutorials/mass_delete",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"v1",
+						"tutorials",
+						"mass_delete"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:3001"
+		},
+		{
+			"key": "access_token",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoiYWNjZXNzIiwidGltZXN0YW1wIjoiSm9obiBEb2UifQ.OjAXsvUU2EoCQDtcKWSvuIXGdJ_HkKSFV1_QTcNdUck"
+		}
+	]
+}
