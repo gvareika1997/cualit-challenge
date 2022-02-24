@@ -20,4 +20,7 @@ La configuracion del docker-compose se encuentra dentro del proyecto. De todas m
 
 5. Actualmente el frontend en Vuejs no cumple con todos los requerimientos explicitados en la letra del Challenge. Ademas, personalmente no estoy satisfecho con la calidad de codigo. De todas maneras se acordo entregar un avance.    
 
-6. TODO: Realizar videos mostrando el uso de las aplicaciones. 
+## Videos
+
+Part 1: https://youtu.be/hDfuWSpObtc
+Part 2: https://youtu.be/LQ5OFQmZ6P8
