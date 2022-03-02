@@ -1,65 +1,42 @@
 <script setup>
-//import TutorialForm from "./deprecated/TutorialForm.vue";
 import SuccessMessage from "./common/SuccessMessage.vue";
 import ErrorMessage from "./common/ErrorMessage.vue";
+import TextInput from "./common/TextInput.vue";
+//import TutorialForm from "./deprecated/TutorialForm.vue";
+import TutorialStatusSelector from "./common/tutorials/TutorialStatusSelector.vue";
 </script>
 
 <template>
   <div class="submit-form">
     <div v-if="!submitted">
-      <!-- <TutorialForm> -->
-      <!-- <template #header> -->
       <h4>Create Tutorial</h4>
-      <!-- </template> -->
 
-      <form>
-        <div class="form-group">
-          <label for="title">Title </label>
-          <input
-            type="text"
-            class="form-control"
-            id="title"
-            v-model="tutorial.title"
-          />
-        </div>
+      <form @submit.prevent="saveTutorial">
+        <TextInput v-model="tutorial.title" label="Title" />
         <br />
-        <div class="form-group">
-          <label for="description">Description</label>
-          <textarea
-            class="form-control"
-            id="description"
-            v-model="tutorial.description"
-          />
-        </div>
+        <TextInput v-model="tutorial.description" label="Description" />
         <br />
-        <div class="form-group">
-          <label for="videoUrl">Video URL</label>
-          <input
-            type="text"
-            class="form-control"
-            id="videoUrl"
-            v-model="tutorial.videoUrl"
-          />
-        </div>
+        <TextInput v-model="tutorial.videoUrl" label="Video URL" />
         <br />
-        <div class="d-flex justify-content-between">
-          <label><strong>Status:</strong></label>
-          <div>
-            <input type="radio" value="PUBLISHED" v-model="tutorial.status" />
-            <label for="PUBLISHED">Published</label>
-          </div>
-          <div>
-            <input type="radio" value="HIDDEN" v-model="tutorial.status" />
-            <label for="HIDDEN">Hidden</label>
-          </div>
-        </div>
+        <TutorialStatusSelector v-model="tutorial.status" />
         <br />
+        <button type="submit" class="btn btn-success">Create</button>
       </form>
 
-      <!-- <template #action> -->
-      <button @click="saveTutorial" class="btn btn-success">Create</button>
-      <!-- </template> -->
-      <!-- </TutorialForm> -->
+      <!-- <TutorialForm
+        :save="saveTutorial"
+        :title="tutorial.title"
+        :description="tutorial.description"
+        :videoUrl="tutorial.videoUrl"
+        :status="tutorial.status"
+      >
+        <template #header>
+          <h4>Create Tutorial</h4>
+        </template>
+        <template #action>
+          <button type="submit" class="btn btn-success">Create</button>
+        </template>
+      </TutorialForm> -->
     </div>
 
     <div v-else>
@@ -83,7 +60,7 @@ export default {
         id: null,
         title: "",
         description: "",
-        status: false,
+        status: "PUBLISHED",
       },
       submitted: false,
       error: false,
@@ -91,6 +68,7 @@ export default {
   },
   methods: {
     saveTutorial() {
+      console.log("Save tutorial");
       this.error = null;
       var data = {
         title: this.tutorial.title,

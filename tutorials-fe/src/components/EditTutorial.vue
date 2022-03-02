@@ -1,82 +1,34 @@
 <script setup>
-//import TutorialForm from "./deprecated/TutorialForm.vue";
 import SuccessMessage from "./common/SuccessMessage.vue";
 import ErrorMessage from "./common/ErrorMessage.vue";
+import TextInput from "./common/TextInput.vue";
+import TutorialStatusSelector from "./common/tutorials/TutorialStatusSelector.vue";
 </script>
 
 <template>
   <div v-if="currentTutorial" class="edit-form">
-    <!-- <TutorialForm
-      :title="currentTutorial.title"
-      :description="currentTutorial.description"
-      :videoUrl="currentTutorial.videoUrl"
-      :status="currentTutorial.status" 
-    >-->
-    <!-- <template #header> -->
     <h4>Edit Tutorial</h4>
-    <!-- </template> -->
 
     <form>
-      <div class="form-group">
-        <label for="title">Title </label>
-        <input
-          type="text"
-          class="form-control"
-          id="title"
-          v-model="currentTutorial.title"
-        />
-      </div>
+      <TextInput v-model="currentTutorial.title" label="Title" />
       <br />
-      <div class="form-group">
-        <label for="description">Description</label>
-        <textarea
-          class="form-control"
-          id="description"
-          v-model="currentTutorial.description"
-        />
-      </div>
+      <TextInput v-model="currentTutorial.description" label="Description" />
       <br />
-      <div class="form-group">
-        <label for="videoUrl">Video URL</label>
-        <input
-          type="text"
-          class="form-control"
-          id="videoUrl"
-          v-model="currentTutorial.videoUrl"
-        />
-      </div>
+      <TextInput v-model="currentTutorial.videoUrl" label="Video URL" />
       <br />
-      <div class="d-flex justify-content-between">
-        <label><strong>Status:</strong></label>
-        <div>
-          <input
-            type="radio"
-            value="PUBLISHED"
-            v-model="currentTutorial.status"
-          />
-          <label for="PUBLISHED">Published</label>
-        </div>
-        <div>
-          <input type="radio" value="HIDDEN" v-model="currentTutorial.status" />
-          <label for="HIDDEN">Hidden</label>
-        </div>
-      </div>
+      <TutorialStatusSelector v-model="currentTutorial.status" />
       <br />
     </form>
 
-    <!-- <template #action> -->
     <div class="d-flex justify-content-between">
       <div>
-        <button type="submit" class="btn btn-success" @click="updateTutorial">
-          Update
-        </button>
+        <button class="btn btn-success" @click="updateTutorial">Update</button>
       </div>
       <div>
         <button class="btn btn-danger" @click="deleteTutorial">Delete</button>
       </div>
     </div>
-    <!-- </template> -->
-    <!-- </TutorialForm> -->
+
     <br />
 
     <div v-if="success">
